@@ -586,7 +586,10 @@
           var ok = document.createElement('div');
           ok.className = form.classList.contains('capture-pill') ? 'capture-success' : 'intake-success';
           ok.innerHTML = '<span class="ck">✓</span><span>You’re on the list. We’ll be in touch before the July cohort.</span>';
+          ok.setAttribute('role', 'status');
+          ok.setAttribute('tabindex', '-1');
           form.replaceWith(ok);
+          ok.focus();
         } else {
           return res.json().then(function (data) {
             var m = (data && data.errors && data.errors.length)
