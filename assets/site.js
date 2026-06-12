@@ -565,7 +565,7 @@
     });
   });
 
-  /* ── early access forms (Formspree) ── */
+  /* ── pilot application forms (Formspree) ── */
   $$('.js-ea-form').forEach(function (form) {
     var btn = $('button[type="submit"]', form);
     var errEl = form.parentElement.querySelector('.ea-error');
@@ -585,7 +585,7 @@
         if (res.ok) {
           var ok = document.createElement('div');
           ok.className = form.classList.contains('capture-pill') ? 'capture-success' : 'intake-success';
-          ok.innerHTML = '<span class="ck">✓</span><span>You’re on the list. We’ll be in touch before the July cohort.</span>';
+          ok.innerHTML = '<span class="ck">✓</span><span>Received. A human will be in touch within one business day.</span>';
           ok.setAttribute('role', 'status');
           ok.setAttribute('tabindex', '-1');
           form.replaceWith(ok);

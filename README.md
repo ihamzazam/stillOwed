@@ -1,6 +1,6 @@
 # StillOwed — demo site
 
-Static demo site for **StillOwed** (Dead Invoice Rescue): an AI agent that recovers written-off B2B invoices, courteously, in the client's own name. Product is in development; the agent goes live July 2026.
+Static demo site for **StillOwed** (Dead Invoice Rescue): an AI agent that recovers written-off B2B invoices, courteously, in the client's own name. Now onboarding a limited number of pilot clients.
 
 Everything is simulated client-side. No backend, no build step, no tracking. All companies, people, and messages on the site are fictional sample data.
 

@@ -696,18 +696,21 @@ body {
 }
 .close-sub { margin: 14px 0 32px; font-size: clamp(15px, 2vw, 17px); color: #A9BCCF; text-wrap: pretty; }
 .intake { background: #FFFFFF; border-radius: 18px; padding: clamp(20px, 3vw, 28px); text-align: left; box-shadow: 0 12px 36px rgba(8, 16, 26, 0.35); }
-.dropzone { border: 1.5px dashed var(--line-ctl); border-radius: 10px; padding: 32px 20px; text-align: center; cursor: pointer; }
-.dropzone:hover { border-color: var(--navy); background: #F8F9FA; }
-.dropzone .dz-main { font-size: 13.5px; color: var(--body); font-weight: 500; }
-.dropzone .dz-sub { margin-top: 6px; font-size: 12px; color: var(--faint); }
-.intake-row { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+.invoice-email { border: 1px solid var(--line-card); background: var(--paper); border-radius: 10px; padding: 24px 20px; text-align: center; }
+.invoice-email .ie-main { font-size: 14.5px; color: var(--body); font-weight: 500; line-height: 1.65; }
+.invoice-email .ie-main a { color: var(--navy); font-weight: 700; text-decoration: none; }
+.invoice-email .ie-main a:hover { text-decoration: underline; }
+.invoice-email .ie-sub { margin-top: 6px; font-size: 12px; color: var(--faint); }
+.intake-or { margin-top: 16px; font-size: 11px; color: var(--faint); text-align: center; letter-spacing: 0.08em; font-weight: 600; }
+.intake-row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
 .intake-row input {
   flex: 1 1 220px; min-width: 0; background: #FFFFFF; border: 1px solid var(--line-ctl); border-radius: 999px;
   padding: 13px 19px; color: var(--ink); font-size: 14.5px; font-family: var(--sans); outline: none;
 }
 .intake-row input:focus { border-color: var(--navy); }
 .intake-row .btn-primary { font-size: 14px; padding: 13px 26px; }
-.demo-note { margin-top: 14px; font-size: 11px; color: var(--faint); text-align: center; letter-spacing: 0.06em; font-weight: 600; }
+.founder-note { margin: 22px auto 0; max-width: 540px; font-size: 13px; line-height: 1.7; color: #A9BCCF; text-align: center; }
+.founder-note strong { color: #FFFFFF; font-weight: 600; }
 
 /* ── footer ── */
 .site-footer { background: #FFFFFF; border-top: 1px solid var(--line); overflow: hidden; }
