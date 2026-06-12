@@ -1,0 +1,9 @@
+# Design reference material (handoff bundle, chat transcripts, brand sheets).
+# Kept locally as the source of truth for the implementation; not published.
+# Remove this line if you want the design files versioned in the repo.
+design/
+
+# OS noise
+Thumbs.db
+.DS_Store
+desktop.ini

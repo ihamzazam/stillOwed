@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StillOwed · Dead Invoice Rescue</title>
+<meta name="description" content="An AI agent that recovers your written-off invoices. StillOwed pursues 60+ day overdue B2B invoices courteously, in your name, across email and SMS. 20% only on recovery, $0 otherwise.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Ccircle cx='48' cy='48' r='48' fill='%231A1611'/%3E%3Cg transform='translate(12,12) scale(1.5)'%3E%3Cpath d='M6 33 H21 L33 17' fill='none' stroke='%23F4F0E6' stroke-width='5' stroke-linecap='square' stroke-linejoin='miter'/%3E%3Cpolygon points='0,-5.2 9.5,0 0,5.2' transform='translate(32,18) rotate(-53)' fill='%23E0512F'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Archivo:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is StillOwed?", "acceptedAnswer": { "@type": "Answer", "text": "StillOwed recovers B2B invoices you've already written off. An AI agent chases each one politely in your name over email and text, negotiates payment plans within limits you set, and a human steps in the moment anything is unusual. The money goes straight to you. We keep 20% of what's recovered, and nothing otherwise." } },
+    { "@type": "Question", "name": "Are you a collection agency?", "acceptedAnswer": { "@type": "Answer", "text": "No. Practically and legally, we're you. Every message goes out under your business's name as your authorized agent. No agency letterhead, no legal threats, no credit-bureau reporting, no intimidating calls. Your customer never feels \"sent to collections,\" and that is exactly why the relationship survives." } },
+    { "@type": "Question", "name": "Which invoices qualify?", "acceptedAnswer": { "@type": "Answer", "text": "Business-to-business invoices only, roughly 60–180 days overdue, $500 or more, with no active dispute about the work. If the customer who owes you is a consumer (a homeowner, a couple, a patient), we can't take it. That's a different legal world, and staying out of it is part of how we protect you." } },
+    { "@type": "Question", "name": "What kinds of businesses do you work with?", "acceptedAnswer": { "@type": "Answer", "text": "Small B2B service firms: marketing and creative agencies, staffing and recruiting firms, commercial subcontractors, IT and managed-service providers, consultants, and freelance teams: any business whose customers are other businesses." } },
+    { "@type": "Question", "name": "What does \"in my name\" actually mean?", "acceptedAnswer": { "@type": "Answer", "text": "The sender on every email and text is your business: your name, your voice, your tone. Your customer experiences a courteous follow-up from you, not a stranger. You see every message and every reply in your dashboard, and you can step in at any time." } },
+    { "@type": "Question", "name": "Will this damage my relationship with my customer?", "acceptedAnswer": { "@type": "Answer", "text": "It's designed around the opposite. Messages read like a friendly bookkeeper, never a debt collector: strict frequency caps, never a threat, and the instant your customer pushes back, everything freezes and a human takes over. Most overdue B2B invoices were never refused; they were lost in someone's accounts-payable pile. A polite, consistent nudge is usually all it takes." } },
+    { "@type": "Question", "name": "What happens if my customer disputes the invoice?", "acceptedAnswer": { "@type": "Answer", "text": "Everything stops, in seconds. The AI never argues a dispute. The case routes to a human and to you, and you decide how to resolve it. Sometimes the customer is right, and we help you fix it gracefully. Outreach resumes only on your instruction." } },
+    { "@type": "Question", "name": "What is the AI allowed to decide on its own?", "acceptedAnswer": { "@type": "Answer", "text": "It operates inside hard limits you approve upfront: for example, settlement discounts up to 10% and payment plans up to 3 months. Anything outside those bounds, plus every dispute or hardship reply, goes to a human. In your first weeks you can approve each message before it sends, and every decision is logged with its reasoning, where you can read it." } },
+    { "@type": "Question", "name": "What channels do you use?", "acceptedAnswer": { "@type": "Answer", "text": "Email first, with polite text messages as a follow-up channel. Any \"please stop contacting me\" request is honored instantly, every time." } },
+    { "@type": "Question", "name": "How does pricing work?", "acceptedAnswer": { "@type": "Answer", "text": "One number: 20% of what's actually recovered. No setup fee, no monthly fee, no minimums, no charge for trying. If we recover nothing, you owe nothing. Not a reduced fee. Nothing." } },
+    { "@type": "Question", "name": "Do you ever hold my money?", "acceptedAnswer": { "@type": "Answer", "text": "Never. Your customer pays you directly, using your bank details or a payment link wired to your own account. We receive only a confirmation that payment landed, then invoice our 20% separately. Your money never passes through our hands." } },
+    { "@type": "Question", "name": "What if my customer pays me directly by check or transfer?", "acceptedAnswer": { "@type": "Answer", "text": "That counts. You confirm the payment in your dashboard and the same 20% applies. Recovery is recovery, whichever rail it arrives on." } },
+    { "@type": "Question", "name": "What is Standing Watch?", "acceptedAnswer": { "@type": "Answer", "text": "An optional $99/month plan most clients add after their first recovery: we watch your receivables from day one, so invoices get a professional nudge at day 35 instead of a rescue at day 90." } },
+    { "@type": "Question", "name": "Is this legal?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, by design. We work commercial (business-to-business) debt only, which sits outside consumer-collection law, and we act as your authorized agent in your own name, not as a third-party agency. No legal threats, capped contact frequency, a state-by-state screen on every debtor at intake, and an instant pause on any dispute or hardship. (We're a recovery service, not a law firm. For advice about a specific debt, talk to your attorney.)" } },
+    { "@type": "Question", "name": "What do you need from me to start?", "acceptedAnswer": { "@type": "Answer", "text": "Three things, ten minutes: your oldest unpaid invoices (PDF, or a CSV from QuickBooks/Xero), your customer's contact details, and a signed one-page authorization letting us act in your name. Most clients are live within a day." } },
+    { "@type": "Question", "name": "Can I stop anytime or pull an invoice back?", "acceptedAnswer": { "@type": "Answer", "text": "Instantly, from your dashboard. No questions, no fee. You only ever owe the 20% on money already recovered." } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <svg class="brand-mark" width="30" height="30" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 33 H21 L33 17" fill="none" stroke="#1A1611" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/><polygon points="0,-5.2 9.5,0 0,5.2" transform="translate(32,18) rotate(-53)" fill="#C03A1F"/></svg>
+      <div class="brand-text">
+        <span class="wordmark"><span class="wm-still">Still</span><span class="wm-owed">Owed</span></span>
+        <span class="brand-label">DEAD INVOICE RESCUE</span>
+      </div>
+    </div>
+    <span class="spacer"></span>
+    <div class="dev-chip"><span class="dot amber pulse"></span><span>In development &middot; live July 2026</span></div>
+    <a class="btn-primary" href="#contact">Apply for early access</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow-row">
+      <div class="hero-eyebrow">AI INVOICE RECOVERY FOR B2B FIRMS</div>
+      <div class="ea-pill"><span class="dot amber"></span><span>EARLY ACCESS &middot; LIVE JULY 2026</span></div>
+    </div>
+    <h1>An AI agent that recovers your written-off invoices.</h1>
+    <p class="hero-sub">StillOwed pursues 60+ day overdue B2B invoices courteously, in <strong>your name</strong>, across email and SMS. Payment lands directly in <strong>your account</strong>, never ours.</p>
+    <div class="capture">
+      <div class="capture-pill">
+        <input type="email" placeholder="What's your work email?">
+        <button class="btn-primary" type="button">Apply for early access</button>
+      </div>
+      <div class="capture-note">First cohort onboards in July 2026 &middot; demo page, form not yet connected</div>
+    </div>
+    <div class="proof-row">
+      <span><span class="ck">&#10003;</span>20% only on recovery, $0 otherwise</span>
+      <span><span class="ck">&#10003;</span>Funds go straight to you</span>
+      <span><span class="ck">&#10003;</span>Strictly B2B</span>
+    </div>
+    <div class="scroll-cue"><span class="tri">&#9660;</span><span>WATCH IT WORK: THREE SIMULATED CASE FILES</span></div>
+  </div>
+</section>
+
+<!-- ============ LIVING CASE FILES ============ -->
+<section id="sim" class="sim">
+  <div class="sim-inner">
+
+    <div class="sim-head">
+      <div class="sim-head-left">
+        <div class="eyebrow">THREE CASES, REPLAYED LIVE</div>
+        <h2 class="h2">The living case files</h2>
+      </div>
+      <span class="spacer"></span>
+      <div class="sim-badge">SIMULATED EXAMPLES &middot; SAMPLE DATA</div>
+    </div>
+
+    <div class="portfolio">
+      <div>
+        <div class="port-label">TOTAL RECOVERED</div>
+        <div class="port-val total"><span id="port-total">$0</span><span class="port-target">&ensp;/ $21,900</span></div>
+      </div>
+      <div>
+        <div class="port-label">TO CLIENTS</div>
+        <div class="port-val clients" id="port-clients">$0</div>
+      </div>
+      <div>
+        <div class="port-label">FEES (20%)</div>
+        <div class="port-val fees" id="port-fees">$0</div>
+      </div>
+      <span class="spacer"></span>
+      <div class="port-note">Grows as the cases are watched; three sample files total $21,900.</div>
+    </div>
+
+    <div class="case-tabs" id="case-tabs">
+      <button class="case-tab active" type="button" data-pick="0">
+        <span class="tab-label">01 &middot; Marketing Agency</span>
+        <span class="tab-stamp green">RECOVERED &middot; PAYMENT PLAN</span>
+        <span class="tab-hint">AUTO-PLAYS ON VIEW</span>
+      </button>
+      <button class="case-tab" type="button" data-pick="1">
+        <span class="tab-label">02 &middot; Staffing Firm</span>
+        <span class="tab-stamp green">RECOVERED IN FULL</span>
+        <span class="tab-hint">PLAYS ON CLICK</span>
+      </button>
+      <button class="case-tab" type="button" data-pick="2">
+        <span class="tab-label">03 &middot; IT Services</span>
+        <span class="tab-stamp amber">DISPUTE &middot; RESOLVED</span>
+        <span class="tab-hint">PLAYS ON CLICK</span>
+      </button>
+    </div>
+
+    <div class="sim-controls">
+      <button class="btn-ctl-primary" type="button" id="btn-pause" hidden>
+        <svg width="10" height="11" viewBox="0 0 10 11"><rect x="0.5" y="0.5" width="3" height="10" fill="currentColor"></rect><rect x="6.5" y="0.5" width="3" height="10" fill="currentColor"></rect></svg>
+        PAUSE
+      </button>
+      <button class="btn-ctl-primary" type="button" id="btn-play">
+        <svg width="10" height="11" viewBox="0 0 10 11"><path d="M1 0.5 L9.5 5.5 L1 10.5 Z" fill="currentColor"></path></svg>
+        <span id="play-label">PLAY</span>
+      </button>
+      <button class="btn-ctl" type="button" id="btn-step">STEP &#8594;</button>
+      <button class="btn-ctl" type="button" id="btn-replay">&#8634; REPLAY</button>
+      <div class="day-pill">DAY <span id="day-num">0</span></div>
+      <div class="sim-status" id="sim-status">AUTO-PLAYS ON VIEW</div>
+    </div>
+
+    <div class="case-split">
+
+      <!-- CASE FILE STAGE -->
+      <div class="stage">
+        <div class="stage-head">
+          <div class="stage-label">CASE FILE&ensp;&middot;&ensp;<span class="inv" id="case-invoice">INV-2041</span></div>
+          <span class="spacer"></span>
+          <div class="stage-rec">RECOVERED&ensp;<span class="amt" id="case-recovered">$0</span>&ensp;<span class="target">/ <span id="case-target">$4,800</span></span></div>
+        </div>
+
+        <div class="feed" id="feed">
+
+          <!-- ════════ CASE A — BRIGHTSPARK ════════ -->
+          <div class="case-feed" data-case="0">
+            <div class="invdoc">
+              <div class="invdoc-head">
+                <div class="invdoc-title">INVOICE</div>
+                <div class="invdoc-num">INV-2041</div>
+                <span class="spacer"></span>
+                <div class="invdoc-issued">ISSUED MAR 16, 2026</div>
+              </div>
+              <div class="invdoc-parties">
+                <div class="party"><div class="party-label">FROM</div><div class="party-name">BrightSpark Marketing</div><div class="party-sub">Tampa, FL</div></div>
+                <div class="party"><div class="party-label">BILL TO</div><div class="party-name">Gulf Coast HVAC LLC</div><div class="party-sub">Sarasota, FL &middot; 40 employees</div></div>
+              </div>
+              <div class="invdoc-line">
+                <div class="desc">Website design &amp; build, project complete</div>
+                <div class="amount">$4,800.00</div>
+              </div>
+              <div class="invdoc-due-row">
+                <div class="invdoc-due">Due <strong>Mar 30, 2026</strong></div>
+                <div class="overdue-pill">73 DAYS OVERDUE</div>
+              </div>
+              <div class="stamp" data-stamp="off">WRITTEN OFF</div>
+              <div class="stamp paid" data-stamp="paid" hidden>PAID IN FULL</div>
+            </div>
+
+            <div class="ev-parse" data-ev="parse1" hidden>
+              <div class="feed-label">DAY 0&ensp;&middot;&ensp;HANDOVER &middot; DOCUMENT PARSED</div>
+              <div class="parse-chips">
+                <div class="parse-chip"><span class="k">amount:</span> $4,800</div>
+                <div class="parse-chip" data-ev="parse2" hidden><span class="k">debtor:</span> Gulf Coast HVAC</div>
+                <div class="parse-chip" data-ev="parse3" hidden><span class="k">due:</span> Mar 30, 2026</div>
+                <div class="parse-chip" data-ev="parse4" hidden><span class="k">age:</span> 73 days</div>
+              </div>
+            </div>
+
+            <div class="ev-card" data-ev="check1" hidden>
+              <div class="feed-label">INTAKE CHECKS</div>
+              <div class="check-rows">
+                <div class="check-row"><div class="check-dot">&#10003;</div><div class="check-text">Debtor is a business <span class="dim">&middot; 40-person HVAC contractor</span></div></div>
+                <div class="check-row" data-ev="check2" hidden><div class="check-dot">&#10003;</div><div class="check-text">60&ndash;180 days old <span class="dim">&middot; 73 days</span></div></div>
+                <div class="check-row" data-ev="check3" hidden><div class="check-dot">&#10003;</div><div class="check-text">No active dispute <span class="dim">&middot; case accepted</span></div></div>
+              </div>
+            </div>
+
+            <div class="ev-block" data-ev="email1" hidden>
+              <div class="day-row"><span class="day-tag">DAY 1</span><span class="day-line"></span><span class="day-note">OUTBOUND EMAIL &middot; 10:02</span></div>
+              <div class="email-card">
+                <div class="email-head with-from">
+                  <div class="from-panel">
+                    <div class="from-avatar">SC</div>
+                    <div class="from-id">
+                      <div class="from-label">FROM</div>
+                      <div class="from-name">Sarah Chen, BrightSpark Marketing</div>
+                      <div class="from-email">sarah&#64;brightsparkmarketing.com</div>
+                    </div>
+                    <span class="spacer"></span>
+                    <div class="yourname-pill">YOUR NAME, NOT OURS</div>
+                  </div>
+                  <div class="email-meta"><span class="lbl">To:</span> dana&#64;gulfcoasthvac.com &nbsp;&middot;&nbsp; <span class="lbl">Subject:</span> <span class="subj">Invoice INV-2041: quick check-in</span></div>
+                </div>
+                <div class="email-body">Hi Dana,<br><br>Hope things are going well at Gulf Coast. I wanted to check in on invoice INV-2041 ($4,800) for the website build we wrapped up in March. It looks like it may have slipped through the cracks.<br><br>Could you let me know when it&rsquo;s scheduled for payment? Happy to resend the invoice if that&rsquo;s helpful.<br><br>Thanks so much,<br>Sarah</div>
+              </div>
+            </div>
+
+            <div class="ev-block" data-ev="email2" hidden>
+              <div class="day-row"><span class="day-tag">DAY 4</span><span class="day-line"></span><span class="day-note">OUTBOUND EMAIL &middot; 09:40</span></div>
+              <div class="email-card">
+                <div class="email-head">
+                  <div class="email-meta"><span class="lbl">From:</span> <span class="strong">Sarah Chen, BrightSpark Marketing</span> &nbsp;&middot;&nbsp; <span class="lbl">Subject:</span> <span class="subj">Re: Invoice INV-2041: copy attached</span></div>
+                </div>
+                <div class="email-body">Hi Dana,<br><br>Resending invoice INV-2041 with the PDF attached, in case the original didn&rsquo;t make it through.<br><br>If someone else handles accounts payable these days, just point me their way and I&rsquo;ll send it directly, no trouble at all.<br><br>Thanks!<br>Sarah
+                  <div class="attach"><svg width="13" height="15" viewBox="0 0 13 15"><path d="M2 0.5 H8 L12 4.5 V13.5 A1 1 0 0 1 11 14.5 H2 A1 1 0 0 1 1 13.5 V1.5 A1 1 0 0 1 2 0.5 Z" fill="none" stroke="#A33D43" stroke-width="1.2"></path></svg><span class="fname">INV-2041.pdf</span><span class="fsize">82 KB</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ev-block" data-ev="sms" hidden>
+              <div class="day-row"><span class="day-tag">DAY 8</span><span class="day-line"></span><span class="day-note">OUTBOUND SMS &middot; 14:05</span></div>
+              <div class="sms-card">
+                <div class="sms-label">TEXT MESSAGE &middot; TO DANA (GULF COAST HVAC)</div>
+                <div class="sms-col">
+                  <div class="sms-bubble">Hi Dana, it&rsquo;s Sarah from BrightSpark. Just a quick nudge on invoice INV-2041 ($4,800). Happy to help if anything&rsquo;s needed on our end. Thanks!</div>
+                  <div class="sms-status">Delivered</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ev-block" data-ev="reply" hidden>
+              <div class="day-row amber"><span class="day-tag">DAY 11</span><span class="day-line"></span><span class="day-note">INBOUND REPLY &middot; 11:21</span></div>
+              <div class="email-card inbound">
+                <div class="email-head">
+                  <div class="email-meta"><span class="lbl">From:</span> <span class="strong">Dana Whitfield (Controller, Gulf Coast HVAC)</span></div>
+                </div>
+                <div class="email-body">Hi Sarah, sorry for the silence, it&rsquo;s been a hectic spring. Cash is tight this month with two big equipment orders. Could we do half now, half in 30 days?<br><br>Dana</div>
+              </div>
+            </div>
+
+            <div class="ev-card fast" data-ev="classifyStart" hidden>
+              <div class="feed-label">REPLY CLASSIFICATION</div>
+              <div class="pills" id="pills-a"></div>
+            </div>
+
+            <div class="ev-card fast" data-ev="auth1" hidden>
+              <div class="feed-label">AUTHORITY CHECK &middot; HARD LIMITS</div>
+              <div class="auth-rows">
+                <div class="auth-row"><span class="ck">&#10003;</span><span>plan length 30 days &nbsp;&le;&nbsp; 3-month limit</span></div>
+                <div class="auth-row" data-ev="auth2" hidden><span class="ck">&#10003;</span><span>discount 0% &nbsp;&le;&nbsp; 10% limit</span></div>
+                <div class="auth-verdict" data-ev="authVerdict" hidden><span>&#8594;</span><span>WITHIN AUTHORITY &middot; ACCEPTING</span></div>
+              </div>
+            </div>
+
+            <div class="ev-block" data-ev="draft" hidden style="margin-top:20px">
+              <div class="day-row"><span class="day-tag">DAY 11</span><span class="day-line"></span><span class="day-note">REPLY DRAFTED &amp; SENT &middot; 11:22</span></div>
+              <div class="email-card">
+                <div class="email-head row">
+                  <div class="email-meta"><span class="lbl">From:</span> <span class="strong">Sarah Chen, BrightSpark Marketing</span></div>
+                  <span class="spacer"></span>
+                  <div class="badge-pill">AUTO-APPROVED &middot; WITHIN AUTHORITY</div>
+                </div>
+                <div class="email-body">Hi Dana, no problem at all, that works on our end.<br><br>Let&rsquo;s do <strong>$2,400 this week</strong> and <strong>$2,400 by July 15</strong>. I&rsquo;ll send a short confirmation with both dates so we&rsquo;re on the same page.<br><br>Thanks for getting back to me. Appreciate it.<br>Sarah</div>
+              </div>
+            </div>
+
+            <div class="ev-block" data-ev="pay1" hidden>
+              <div class="day-row green"><span class="day-tag">DAY 12</span><span class="day-line"></span><span class="day-note">PAYMENT 1 OF 2</span></div>
+              <div class="pay-note">
+                <div class="bank-icon">FH</div>
+                <div class="bank-body">
+                  <div class="bank-src">First Harbor Bank &middot; now</div>
+                  <div class="bank-line">ACH credit received: <span class="amt">$2,400.00</span></div>
+                  <div class="bank-sub">Gulf Coast HVAC LLC &#8594; <strong>BrightSpark Marketing</strong> &middot; Operating &bull;&bull;4417</div>
+                </div>
+              </div>
+              <div class="webhook-row"><span class="hook">&#8627;</span><span>Funds went directly to the client&rsquo;s bank. The platform received:</span><span class="webhook-chip">webhook: paid &#10003;</span><span>and never the money.</span></div>
+            </div>
+
+            <div class="ev-block" data-ev="pay2" hidden>
+              <div class="day-row green"><span class="day-tag">DAY 42</span><span class="day-line"></span><span class="day-note">PAYMENT 2 OF 2 &middot; ON SCHEDULE</span></div>
+              <div class="pay-note">
+                <div class="bank-icon">FH</div>
+                <div class="bank-body">
+                  <div class="bank-src">First Harbor Bank &middot; now</div>
+                  <div class="bank-line">ACH credit received: <span class="amt">$2,400.00</span></div>
+                  <div class="bank-sub">Gulf Coast HVAC LLC &#8594; <strong>BrightSpark Marketing</strong> &middot; Operating &bull;&bull;4417</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="split-card" data-ev="split" hidden>
+              <div class="split-label">SETTLEMENT SUMMARY</div>
+              <div class="split-rows">
+                <div class="split-row"><span class="k">Recovered</span><span class="v">$4,800</span></div>
+                <div class="split-row main"><span class="k">To BrightSpark <span class="paren">(80%)</span></span><span class="v">$3,840</span></div>
+                <div class="split-row fee"><span class="k">Our fee <span class="paren">(20%, only on recovery)</span></span><span class="v">$960</span></div>
+              </div>
+              <div class="split-close" data-ev="closing" hidden>
+                <div class="split-tagline">Money you&rsquo;d written to zero.</div>
+                <span class="spacer"></span>
+                <button class="btn-ghost-sm js-replay" type="button">&#8634; WATCH AGAIN</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ════════ CASE B — MERIDIAN STAFFING ════════ -->
+          <div class="case-feed" data-case="1" hidden>
+            <div class="invdoc">
+              <div class="invdoc-head">
+                <div class="invdoc-title">INVOICE</div>
+                <div class="invdoc-num">INV-0388</div>
+                <span class="spacer"></span>
+                <div class="invdoc-issued">ISSUED FEB 23, 2026</div>
+              </div>
+              <div class="invdoc-parties">
+                <div class="party"><div class="party-label">FROM</div><div class="party-name">Meridian Staffing Group</div><div class="party-sub">Atlanta, GA &middot; 8 employees</div></div>
+                <div class="party"><div class="party-label">BILL TO</div><div class="party-name">Harbor Point Logistics</div><div class="party-sub">Savannah, GA &middot; 120 employees</div></div>
+              </div>
+              <div class="invdoc-line">
+                <div class="desc">Placement fee: Director of Operations hire</div>
+                <div class="amount">$12,500.00</div>
+              </div>
+              <div class="invdoc-due-row">
+                <div class="invdoc-due">Due <strong>Mar 9, 2026</strong></div>
+                <div class="overdue-pill">94 DAYS OVERDUE</div>
+              </div>
+              <div class="stamp" data-stamp="off">WRITTEN OFF</div>
+              <div class="stamp paid" data-stamp="paid" hidden>PAID IN FULL</div>
+            </div>
+
+            <div class="ev-parse" data-ev="parse1" hidden>
+              <div class="feed-label">DAY 0&ensp;&middot;&ensp;HANDOVER &middot; DOCUMENT PARSED</div>
+              <div class="parse-chips">
+                <div class="parse-chip"><span class="k">amount:</span> $12,500</div>
+                <div class="parse-chip" data-ev="parse2" hidden><span class="k">debtor:</span> Harbor Point Logistics</div>
+                <div class="parse-chip" data-ev="parse3" hidden><span class="k">due:</span> Mar 9, 2026</div>
+                <div class="parse-chip" data-ev="parse4" hidden><span class="k">age:</span> 94 days</div>
+              </div>
+            </div>
+
+            <div class="ev-card" data-ev="check1" hidden>
+              <div class="feed-label">INTAKE CHECKS</div>
+              <div class="check-rows">
+                <div class="check-row"><div class="check-dot">&#10003;</div><div class="check-text">Debtor is a business <span class="dim">&middot; 120-person logistics company</span></div></div>
+                <div class="check-row" data-ev="check2" hidden><div class="check-dot">&#10003;</div><div class="check-text">60&ndash;180 days old <span class="dim">&middot; 94 days</span></div></div>
+                <div class="check-row" data-ev="check3" hidden><div class="check-dot">&#10003;</div><div class="check-text">No active dispute <span class="dim">&middot; case accepted</span></div></div>
+                <div class="check-row" data-ev="priority" hidden><div class="check-dot navy">&#9650;</div><div class="check-text strong">High value: $12,500 <span class="dim">&middot; priority sequencing</span></div></div>
+              </div>
+            </div>
+
+            <div class="ev-block" data-ev="email1" hidden>
+              <div class="day-row"><span class="day-tag">DAY 1</span><span class="day-line"></span><span class="day-note">OUTBOUND EMAIL &middot; 09:31</span></div>
+              <div class="email-card">
+                <div class="email-head with-from">
+                  <div class="from-panel">
+                    <div class="from-avatar">RO</div>
+                    <div class="from-id">
+                      <div class="from-label">FROM</div>
+                      <div class="from-name">Rachel Okafor, Meridian Staffing Group</div>
+                      <div class="from-email">rachel&#64;meridianstaffing.com</div>
+                    </div>
+                    <span class="spacer"></span>
+                    <div class="yourname-pill">YOUR NAME, NOT OURS</div>
+                  </div>
+                  <div class="email-meta"><span class="lbl">To:</span> mark&#64;harborpointlogistics.com &nbsp;&middot;&nbsp; <span class="lbl">Subject:</span> <span class="subj">Invoice INV-0388: checking in</span></div>
+                </div>
+                <div class="email-body">Hi Mark,<br><br>Hope all&rsquo;s well at Harbor Point. I wanted to check in on invoice INV-0388 ($12,500) for the Director of Operations placement we completed in February. I don&rsquo;t see it as paid on our side yet.<br><br>Could you let me know where it stands? Happy to resend anything you need.<br><br>Best,<br>Rachel</div>
+              </div>
+            </div>
+
+            <div class="ev-bounce" data-ev="bounce" hidden>
+              <div class="bounce-card">
+                <div class="bounce-title">MAIL DELIVERY SUBSYSTEM</div>
+                <div class="bounce-body">Delivery failed permanently: mark&#64;harborpointlogistics.com<br><span class="dim">550: mailbox unavailable. Recipient no longer at this address.</span></div>
+              </div>
+            </div>
+
+            <div class="ev-card fast" data-ev="cls1Start" hidden>
+              <div class="feed-label">EVENT CLASSIFICATION</div>
+              <div class="pills" id="pills-b1"></div>
+            </div>
+
+            <div class="ev-block" data-ev="reroute" hidden>
+              <div class="day-row"><span class="day-tag">DAY 2</span><span class="day-line"></span><span class="day-note">OUTBOUND EMAIL &middot; 10:15</span></div>
+              <div class="email-card">
+                <div class="email-head">
+                  <div class="email-meta"><span class="lbl">From:</span> <span class="strong">Rachel Okafor, Meridian Staffing Group</span> &nbsp;&middot;&nbsp; <span class="lbl">To:</span> ap&#64;harborpointlogistics.com</div>
+                </div>
+                <div class="email-body">Hi there,<br><br>Could you point me to the right person for invoice INV-0388 (Meridian Staffing)? I want to make sure it reaches whoever handles accounts payable these days.<br><br>Thank you!<br>Rachel</div>
+              </div>
+            </div>
+
+            <div class="ev-mid" data-ev="apReply" hidden>
+              <div class="email-card inbound narrow">
+                <div class="email-head sm"><div class="email-meta sm"><span class="lbl">From:</span> <span class="strong">Front Office, Harbor Point Logistics</span></div></div>
+                <div class="email-body sm">That&rsquo;s Dana in AP, forwarding now.</div>
+              </div>
+            </div>
+
+            <div class="ev-block" data-ev="reply" hidden>
+              <div class="day-row amber"><span class="day-tag">DAY 5</span><span class="day-line"></span><span class="day-note">INBOUND REPLY &middot; 15:48</span></div>
+              <div class="email-card inbound">
+                <div class="email-head">
+                  <div class="email-meta"><span class="lbl">From:</span> <span class="strong">Dana Ferreira (Accounts Payable, Harbor Point Logistics)</span></div>
+                </div>
+                <div class="email-body">Hi Rachel, found it. This was never entered into our system after Mark left. Processing now; payment by Friday.<br><br>Dana</div>
+              </div>
+            </div>
+
+            <div class="ev-card fast" data-ev="cls2Start" hidden>
+              <div class="feed-label">REPLY CLASSIFICATION</div>
+              <div class="pills" id="pills-b2"></div>
+            </div>
+
+            <div class="restraint-card" data-ev="restraint" hidden>
+              <div class="restraint-label">AUTHORITY CHECK &middot; STANDING DOWN</div>
+              <div class="restraint-main">No action needed. Courtesy confirmation scheduled Day 9. All further reminders suppressed.</div>
+              <div class="struck-list">
+                <div>Day 7 follow-up email</div>
+                <div>Day 10 SMS reminder</div>
+                <div>Day 13 escalation review</div>
+              </div>
+              <div class="restraint-note">Nobody likes being chased after they&rsquo;ve said yes.</div>
+            </div>
+
+            <div class="ev-block" data-ev="pay" hidden>
+              <div class="day-row green"><span class="day-tag">DAY 9</span><span class="day-line"></span><span class="day-note">PAYMENT &middot; IN FULL</span></div>
+              <div class="pay-note">
+                <div class="bank-icon">CT</div>
+                <div class="bank-body">
+                  <div class="bank-src">Crestline Trust &middot; now</div>
+                  <div class="bank-line">ACH credit received: <span class="amt">$12,500.00</span></div>
+                  <div class="bank-sub">Harbor Point Logistics &#8594; <strong>Meridian Staffing Group</strong> &middot; Operating &bull;&bull;2209</div>
+                </div>
+              </div>
+              <div class="webhook-row"><span class="hook">&#8627;</span><span>Straight to the client&rsquo;s bank. The platform received:</span><span class="webhook-chip">webhook: paid &#10003;</span></div>
+            </div>
+
+            <div class="split-card" data-ev="split" hidden>
+              <div class="split-label">SETTLEMENT SUMMARY</div>
+              <div class="split-rows">
+                <div class="split-row"><span class="k">Recovered</span><span class="v">$12,500</span></div>
+                <div class="split-row main"><span class="k">To Meridian <span class="paren">(80%)</span></span><span class="v">$10,000</span></div>
+                <div class="split-row fee"><span class="k">Our fee <span class="paren">(20%, only on recovery)</span></span><span class="v">$2,500</span></div>
+              </div>
+            </div>
+
+            <div class="epilogue-chip" data-ev="epilogue" hidden>
+              <span class="tag">EPILOGUE</span>
+              <span class="txt">Meridian adds Standing Watch: every future invoice monitored from day 1 &middot; $99/mo.</span>
+            </div>
+
+            <div class="lesson-card" data-ev="lesson" hidden>
+              <div class="lesson-label">LESSON</div>
+              <div class="lesson-text">It wasn&rsquo;t refused. It was lost. Most dead invoices are. The agent&rsquo;s only superpower is that it never forgets.</div>
+              <button class="btn-ghost-sm js-replay" type="button">&#8634; WATCH AGAIN</button>
+            </div>
+          </div>
+
+          <!-- ════════ CASE C — COBALT IT ════════ -->
+          <div class="case-feed" data-case="2" hidden>
+            <div class="freeze-banner" id="frozen-banner" hidden>
+              <svg width="10" height="12" viewBox="0 0 10 12"><rect x="0.5" y="0.5" width="3" height="11" fill="#9A6B1F"></rect><rect x="6.5" y="0.5" width="3" height="11" fill="#9A6B1F"></rect></svg>
+              <span>CASE FROZEN &middot; ROUTED TO HUMANS &middot; THE AI WILL NOT ARGUE</span>
+            </div>
+
+            <div class="invdoc">
+              <div class="invdoc-head">
+                <div class="invdoc-title">INVOICE</div>
+                <div class="invdoc-num">INV-1126</div>
+                <span class="spacer"></span>
+                <div class="invdoc-issued">ISSUED MAR 28, 2026</div>
+              </div>
+              <div class="invdoc-parties">
+                <div class="party"><div class="party-label">FROM</div><div class="party-name">Cobalt IT Services</div><div class="party-sub">Tampa, FL &middot; 12 employees</div></div>
+                <div class="party"><div class="party-label">BILL TO</div><div class="party-name">Pinecrest Insurance Brokers</div><div class="party-sub">Orlando, FL &middot; 30 employees</div></div>
+              </div>
+              <div class="invdoc-line">
+                <div class="desc">Managed IT services, Q1 2026</div>
+                <div class="amount">$5,200.00</div>
+              </div>
+              <div class="invdoc-due-row">
+                <div class="invdoc-due">Due <strong>Apr 11, 2026</strong></div>
+                <div class="overdue-pill">61 DAYS OVERDUE</div>
+              </div>
+              <div class="stamp" data-stamp="off">WRITTEN OFF</div>
+              <div class="stamp paid resolved" data-stamp="paid" hidden>RESOLVED &amp; PAID<br><span class="sub">CORRECTED TO $4,600</span></div>
+            </div>
+
+            <div class="ev-parse" data-ev="parse1" hidden>
+              <div class="feed-label">DAY 0&ensp;&middot;&ensp;HANDOVER &middot; DOCUMENT PARSED</div>
+              <div class="parse-chips">
+                <div class="parse-chip"><span class="k">amount:</span> $5,200</div>
+                <div class="parse-chip" data-ev="parse2" hidden><span class="k">debtor:</span> Pinecrest Insurance</div>
+                <div class="parse-chip" data-ev="parse3" hidden><span class="k">due:</span> Apr 11, 2026</div>
+                <div class="parse-chip" data-ev="parse4" hidden><span class="k">age:</span> 61 days</div>
+              </div>
+            </div>
+
+            <div class="ev-card" data-ev="check1" hidden>
+              <div class="feed-label">INTAKE CHECKS</div>
+              <div class="check-rows">
+                <div class="check-row"><div class="check-dot">&#10003;</div><div class="check-text">Debtor is a business <span class="dim">&middot; 30-person insurance brokerage</span></div></div>
+                <div class="check-row" data-ev="check2" hidden><div class="check-dot">&#10003;</div><div class="check-text">60&ndash;180 days old <span class="dim">&middot; 61 days</span></div></div>
+                <div class="check-row" data-ev="check3" hidden><div class="check-dot">&#10003;</div><div class="check-text">No active dispute <span class="dim">&middot; case accepted</span></div></div>
+              </div>
+            </div>
+
+            <div class="ev-block" data-ev="email1" hidden>
+              <div class="day-row"><span class="day-tag">DAY 1</span><span class="day-line"></span><span class="day-note">OUTBOUND EMAIL &middot; 09:18</span></div>
+              <div class="email-card">
+                <div class="email-head with-from">
+                  <div class="from-panel">
+                    <div class="from-avatar">MW</div>
+                    <div class="from-id">
+                      <div class="from-label">FROM</div>
+                      <div class="from-name">Marcus Webb, Cobalt IT Services</div>
+                      <div class="from-email">marcus&#64;cobaltit.com</div>
+                    </div>
+                    <span class="spacer"></span>
+                    <div class="yourname-pill">YOUR NAME, NOT OURS</div>
+                  </div>
+                  <div class="email-meta"><span class="lbl">To:</span> accounts&#64;pinecrestins.com &nbsp;&middot;&nbsp; <span class="lbl">Subject:</span> <span class="subj">Invoice INV-1126: quick check-in</span></div>
+                </div>
+                <div class="email-body">Hi Teresa,<br><br>Hope all&rsquo;s well at Pinecrest. Just checking in on invoice INV-1126 ($5,200) for Q1 managed services. It looks like it&rsquo;s still open on our side.<br><br>Could you let me know when it&rsquo;s scheduled? Happy to resend the detail if useful.<br><br>Thanks,<br>Marcus</div>
+              </div>
+            </div>
+
+            <div class="ev-block" data-ev="email2" hidden>
+              <div class="day-row"><span class="day-tag">DAY 4</span><span class="day-line"></span><span class="day-note">OUTBOUND EMAIL &middot; 10:05</span></div>
+              <div class="email-card">
+                <div class="email-head">
+                  <div class="email-meta"><span class="lbl">From:</span> <span class="strong">Marcus Webb, Cobalt IT Services</span> &nbsp;&middot;&nbsp; <span class="lbl">Subject:</span> <span class="subj">Re: Invoice INV-1126: copy attached</span></div>
+                </div>
+                <div class="email-body">Hi Teresa,<br><br>Resending INV-1126 with the PDF attached in case it&rsquo;s easier. If someone else handles AP now, point me their way and I&rsquo;ll send it directly.<br><br>Thanks!<br>Marcus</div>
+              </div>
+            </div>
+
+            <div class="ev-block" data-ev="reply" hidden>
+              <div class="day-row amber"><span class="day-tag">DAY 6</span><span class="day-line"></span><span class="day-note">INBOUND REPLY &middot; 14:32</span></div>
+              <div class="email-card inbound">
+                <div class="email-head">
+                  <div class="email-meta"><span class="lbl">From:</span> <span class="strong">Teresa Lam (Office Manager, Pinecrest Insurance Brokers)</span></div>
+                </div>
+                <div class="email-body">Holding payment. We believe we were double-billed for the March onsite visits. Not paying until this is resolved.<br><br>Teresa</div>
+              </div>
+            </div>
+
+            <div class="ev-card fast" data-ev="clsStart" hidden>
+              <div class="feed-label">REPLY CLASSIFICATION</div>
+              <div class="pills" id="pills-c1"></div>
+            </div>
+
+            <div class="freeze-card" data-ev="freeze" hidden>
+              <div class="freeze-head">
+                <div class="freeze-icon"><svg width="11" height="13" viewBox="0 0 11 13"><rect x="1" y="1" width="3" height="11" fill="#9A6B1F"></rect><rect x="7" y="1" width="3" height="11" fill="#9A6B1F"></rect></svg></div>
+                <div>
+                  <div class="freeze-title">Frozen.</div>
+                  <div class="freeze-ts">DAY 6 &middot; 14:32 &middot; TIME TO FREEZE: 4 SECONDS</div>
+                </div>
+              </div>
+              <div class="freeze-body">Dispute detected. All outreach halted. The AI will not argue. Routed to the human queue. Client notified.</div>
+              <div class="queued-label">QUEUED ACTIONS &middot; ALL STRUCK</div>
+              <div class="queued">
+                <div>Day 8 follow-up email</div>
+                <div>Day 10 SMS reminder</div>
+                <div>Day 13 courtesy call request</div>
+              </div>
+            </div>
+
+            <div class="ev-block" data-ev="human" hidden>
+              <div class="day-row human"><span class="day-tag">DAYS 6&ndash;7</span><span class="day-line"></span><span class="day-note">HUMAN LANE &middot; NO AI BEYOND THIS LINE</span></div>
+              <div class="human-card">
+                <div class="human-people">
+                  <div class="person"><div class="person-avatar">JA</div><div><div class="person-name">J. Alvarez</div><div class="person-role">OPS REVIEWER &middot; HUMAN</div></div></div>
+                  <div class="person"><div class="person-avatar">MW</div><div><div class="person-name">Marcus Webb</div><div class="person-role">CLIENT &middot; COBALT IT</div></div></div>
+                </div>
+                <div class="human-body">Reviewed the client&rsquo;s March records together: the <strong>Mar 12 onsite visit was entered twice</strong>, a <strong>$600 duplicate</strong>. The debtor is right.</div>
+              </div>
+            </div>
+
+            <div class="decision-card" data-ev="decision" hidden>
+              <div class="decision-label">CLIENT DECISION &middot; DAY 7</div>
+              <div class="decision-q">Issue corrected invoice ($4,600) + apology. Approve?</div>
+              <div class="approve-row">
+                <div id="approve-wait">
+                  <div class="approve-row" style="margin-top:0">
+                    <div class="approve-wait-btn">APPROVE</div>
+                    <div class="approve-wait-note">waiting on Marcus&hellip;</div>
+                  </div>
+                </div>
+                <div id="approve-done" hidden>
+                  <div class="approve-row" style="margin-top:0">
+                    <div class="approved-chip">APPROVED &#10003;</div>
+                    <div class="approved-meta">M. Webb &middot; Day 7 &middot; 09:12</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ev-block" data-ev="repair" hidden>
+              <div class="day-row"><span class="day-tag">DAY 8</span><span class="day-line"></span><span class="day-note">REPAIR EMAIL &middot; 11:06</span></div>
+              <div class="email-card">
+                <div class="email-head row">
+                  <div class="email-meta"><span class="lbl">From:</span> <span class="strong">Marcus Webb, Cobalt IT Services</span></div>
+                  <span class="spacer"></span>
+                  <div class="badge-pill human">DRAFTED BY AGENT &middot; APPROVED BY HUMAN</div>
+                </div>
+                <div class="email-body">Hi Teresa, you were right. March was double-entered on our side, and I&rsquo;m sorry for the confusion.<br><br>Corrected invoice attached (<strong>$4,600</strong>). Thanks for catching it.<br><br>Marcus
+                  <div class="attach"><svg width="13" height="15" viewBox="0 0 13 15"><path d="M2 0.5 H8 L12 4.5 V13.5 A1 1 0 0 1 11 14.5 H2 A1 1 0 0 1 1 13.5 V1.5 A1 1 0 0 1 2 0.5 Z" fill="none" stroke="#A33D43" stroke-width="1.2"></path></svg><span class="fname">INV-1126-corrected.pdf</span><span class="fsize">78 KB</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ev-block" data-ev="reply2" hidden>
+              <div class="day-row amber"><span class="day-tag">DAY 11</span><span class="day-line"></span><span class="day-note">INBOUND REPLY &middot; 09:44</span></div>
+              <div class="email-card inbound narrow">
+                <div class="email-head sm"><div class="email-meta sm"><span class="lbl">From:</span> <span class="strong">Teresa Lam, Pinecrest Insurance Brokers</span></div></div>
+                <div class="email-body sm">Appreciate the quick fix, processing today.</div>
+              </div>
+            </div>
+
+            <div class="ev-card fast" data-ev="cls2Start" hidden>
+              <div class="feed-label">REPLY CLASSIFICATION</div>
+              <div class="pills" id="pills-c2"></div>
+            </div>
+
+            <div class="ev-block" data-ev="pay" hidden>
+              <div class="day-row green"><span class="day-tag">DAY 12</span><span class="day-line"></span><span class="day-note">PAYMENT &middot; CORRECTED AMOUNT</span></div>
+              <div class="pay-note">
+                <div class="bank-icon">FH</div>
+                <div class="bank-body">
+                  <div class="bank-src">First Harbor Bank &middot; now</div>
+                  <div class="bank-line">ACH credit received: <span class="amt">$4,600.00</span></div>
+                  <div class="bank-sub">Pinecrest Insurance Brokers &#8594; <strong>Cobalt IT Services</strong> &middot; Operating &bull;&bull;8841</div>
+                </div>
+              </div>
+              <div class="webhook-row"><span class="hook">&#8627;</span><span>Straight to the client&rsquo;s bank. The platform received:</span><span class="webhook-chip">webhook: paid &#10003;</span></div>
+            </div>
+
+            <div class="split-card" data-ev="split" hidden>
+              <div class="split-label">SETTLEMENT SUMMARY</div>
+              <div class="split-rows">
+                <div class="split-row"><span class="k">Recovered <span class="paren">(corrected invoice)</span></span><span class="v">$4,600</span></div>
+                <div class="split-row main"><span class="k">To Cobalt <span class="paren">(80%)</span></span><span class="v">$3,680</span></div>
+                <div class="split-row fee"><span class="k">Our fee <span class="paren">(20%, only on recovery)</span></span><span class="v">$920</span></div>
+              </div>
+            </div>
+
+            <div class="lesson-card human" data-ev="lesson" hidden>
+              <div class="lesson-label">LESSON</div>
+              <div class="lesson-text">Disputes freeze the machine in seconds. Humans decide. Sometimes the debtor is right, and your client fixes it. The AI never argues. That&rsquo;s the point.</div>
+              <button class="btn-ghost-sm js-replay" type="button">&#8634; WATCH AGAIN</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DECISION LOG -->
+      <div class="logcard">
+        <div class="log-head">
+          <span class="dot green"></span>
+          <div class="log-title">AGENT DECISION LOG</div>
+          <span class="spacer"></span>
+          <div class="log-sub">EVERY ACTION, EXPLAINED</div>
+        </div>
+        <div class="log" id="log">
+          <div class="log-placeholder" id="log-placeholder">&gt; awaiting case&hellip;<br>&gt; every action the agent takes will be logged here with its rationale.</div>
+          <div class="log-items" id="log-items"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ YOU BE THE DEBTOR ============ -->
+<section class="debtor">
+  <div class="section-inner">
+    <div class="eyebrow">TEST THE GUARDRAILS</div>
+    <h2 class="h2">You be the debtor</h2>
+    <p class="debtor-sub">Choose a reply. Observe what the agent does, and when it stops itself.</p>
+
+    <div class="debtor-split">
+      <div class="debtor-choices" id="debtor-choices">
+        <button class="choice" type="button" data-choice="0">
+          <span class="choice-label">YOU REPLY:</span>
+          <span class="choice-text">&ldquo;I&rsquo;ll pay it Friday.&rdquo;</span>
+        </button>
+        <button class="choice" type="button" data-choice="1">
+          <span class="choice-label">YOU REPLY:</span>
+          <span class="choice-text">&ldquo;Can we split it over a few months?&rdquo;</span>
+        </button>
+        <button class="choice" type="button" data-choice="2">
+          <span class="choice-label">YOU REPLY:</span>
+          <span class="choice-text">&ldquo;That work was never completed.&rdquo;</span>
+        </button>
+        <button class="choice" type="button" data-choice="3">
+          <span class="choice-label">YOU REPLY:</span>
+          <span class="choice-text">&ldquo;Stop contacting me.&rdquo;</span>
+        </button>
+      </div>
+
+      <div class="debtor-panel">
+        <div class="d-idle" id="d-idle">&#8592; Send the agent a reply<br>and watch it work.</div>
+
+        <div id="d-chip" hidden>
+          <div class="feed-label" style="margin-bottom:11px">REPLY CLASSIFICATION</div>
+          <div class="pills" id="d-pills"></div>
+        </div>
+
+        <div class="d-check" id="d-check" hidden>
+          <div class="feed-label" style="margin-bottom:10px">AUTHORITY CHECK</div>
+          <div class="auth-rows" id="d-check-rows"></div>
+        </div>
+
+        <div class="d-outcome" id="d-outcome-reply" hidden>
+          <div class="d-outcome-label">&#8594; AGENT RESPONSE, DRAFTED IN YOUR CLIENT&rsquo;S VOICE</div>
+          <div class="d-reply-card">
+            <div class="d-reply-head"><span class="lbl" style="color:#97A0AB">From:</span> <span style="color:#14202E;font-weight:700">Sarah Chen, BrightSpark Marketing</span></div>
+            <div class="d-reply-body" id="d-reply-text"></div>
+          </div>
+        </div>
+
+        <div class="d-freeze" id="d-outcome-freeze" hidden>
+          <div class="d-freeze-head">
+            <div class="d-freeze-icon"><svg width="11" height="13" viewBox="0 0 11 13"><rect x="1" y="1" width="3" height="11" fill="#9A6B1F"></rect><rect x="7" y="1" width="3" height="11" fill="#9A6B1F"></rect></svg></div>
+            <div class="d-freeze-title">Paused instantly.</div>
+          </div>
+          <div class="d-freeze-body">Routed to a human and to you. The AI never argues a dispute and always honors a stop request.</div>
+          <div class="d-freeze-note" id="d-freeze-note"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROI SLIDER ============ -->
+<section class="roi">
+  <div class="section-inner">
+    <div class="eyebrow">THE ARITHMETIC</div>
+    <h2 class="h2">How much is sitting 60+ days past due right now?</h2>
+
+    <div class="roi-card">
+      <div class="roi-top">
+        <div class="roi-val" id="roi-val">$18,000</div>
+        <div class="roi-cap">in written-off B2B invoices</div>
+      </div>
+      <input type="range" id="roi-range" min="2000" max="100000" step="1000" value="18000">
+      <div class="roi-scale"><span>$2,000</span><span>$100,000</span></div>
+
+      <div class="roi-grid">
+        <div class="roi-cell">
+          <div class="roi-cell-label">MODELED RECOVERY <span class="dim">(CONSERVATIVE 15&ndash;25% BAND)</span></div>
+          <div class="roi-cell-val" id="roi-rec">$2,700 &ndash; $4,500</div>
+        </div>
+        <div class="roi-cell net">
+          <div class="roi-cell-label">YOUR NET, AFTER THE 20% FEE</div>
+          <div class="roi-cell-val" id="roi-net">$2,160 &ndash; $3,600</div>
+        </div>
+        <div class="roi-cell">
+          <div class="roi-cell-label">IF NOTHING IS RECOVERED, YOU PAY</div>
+          <div class="roi-cell-val">$0</div>
+        </div>
+      </div>
+      <div class="roi-note">A modeling band, not a promise. Recovery depends on debtor solvency and invoice quality. That&rsquo;s why you pay only on results.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<section class="trust">
+  <div class="section-inner">
+    <div class="eyebrow">ARTIFACTS, NOT ADJECTIVES</div>
+    <h2 class="h2">How it&rsquo;s structured</h2>
+
+    <div class="trust-grid">
+
+      <div class="trust-card">
+        <div class="trust-label lg">WHERE THE MONEY GOES</div>
+        <div class="flow">
+          <div class="flow-row">
+            <div class="flow-box">Debtor</div>
+            <div class="flow-arrow">$&#8594;</div>
+            <div class="flow-box bank">Your bank</div>
+          </div>
+          <div class="flow-drop"><div class="flow-drop-line"></div></div>
+          <div class="flow-us-row">
+            <div class="flow-us">Us: we receive <span class="hook">webhook: paid &#10003;</span><br>never the funds</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-label">THE GUARDRAIL REGISTER</div>
+        <div class="guard-list">
+          <div><span class="ck">&#10003;</span><span>B2B debt only, never consumers</span></div>
+          <div><span class="ck">&#10003;</span><span>No legal threats. Ever.</span></div>
+          <div><span class="ck">&#10003;</span><span>Contact frequency caps on every channel</span></div>
+          <div><span class="ck">&#10003;</span><span>Instant pause on any dispute or hardship</span></div>
+          <div><span class="ck">&#10003;</span><span>Opt-outs honored immediately</span></div>
+        </div>
+      </div>
+
+      <div class="trust-card crop">
+        <div class="trust-label">YOUR NAME, YOUR VOICE</div>
+        <div class="from-crop">
+          <div class="from-label">FROM</div>
+          <div class="name">Sarah Chen, BrightSpark Marketing</div>
+          <div class="email">sarah&#64;brightsparkmarketing.com</div>
+        </div>
+        <div class="trust-note">Every message is sent under your name and address. Your client relationship stays yours: no agency letterhead, no third party.</div>
+      </div>
+
+      <div class="trust-card pricing">
+        <div class="trust-label">PRICING</div>
+        <div class="price-row"><span class="price-big">20%</span><span class="price-cap">of what&rsquo;s recovered</span></div>
+        <div class="price-row"><span class="price-big green">$0</span><span class="price-cap">otherwise. No retainer, no setup fee</span></div>
+        <span class="spacer"></span>
+        <div class="price-note">Optional after your first recovery: <strong>$99/mo standing watch</strong>. We monitor your aging report and act before invoices die.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="section-inner">
+    <div class="eyebrow">COMMON QUESTIONS</div>
+    <h2 class="h2">Frequently asked questions</h2>
+
+    <div class="faq-list">
+
+      <div class="faq-group">
+        <div class="faq-glabel">THE BASICS</div>
+        <div class="faq-card">
+          <div class="faq-item open">
+            <button class="faq-q" type="button" aria-expanded="true"><span class="q-text">What is StillOwed?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">StillOwed recovers B2B invoices you've already written off. An AI agent chases each one politely in your name over email and text, negotiates payment plans within limits you set, and a human steps in the moment anything is unusual. The money goes straight to you. We keep 20% of what's recovered, and nothing otherwise.</div></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">Are you a collection agency?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">No. Practically and legally, we're you. Every message goes out under your business's name as your authorized agent. No agency letterhead, no legal threats, no credit-bureau reporting, no intimidating calls. Your customer never feels &ldquo;sent to collections,&rdquo; and that is exactly why the relationship survives.</div></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">Which invoices qualify?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">Business-to-business invoices only, roughly 60&ndash;180 days overdue, $500 or more, with no active dispute about the work. If the customer who owes you is a consumer (a homeowner, a couple, a patient), we can't take it. That's a different legal world, and staying out of it is part of how we protect you.</div></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">What kinds of businesses do you work with?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">Small B2B service firms: marketing and creative agencies, staffing and recruiting firms, commercial subcontractors, IT and managed-service providers, consultants, and freelance teams: any business whose customers are other businesses.</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-group">
+        <div class="faq-glabel">HOW IT WORKS</div>
+        <div class="faq-card">
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">What does &ldquo;in my name&rdquo; actually mean?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">The sender on every email and text is your business: your name, your voice, your tone. Your customer experiences a courteous follow-up from you, not a stranger. You see every message and every reply in your dashboard, and you can step in at any time.</div></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">Will this damage my relationship with my customer?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">It's designed around the opposite. Messages read like a friendly bookkeeper, never a debt collector: strict frequency caps, never a threat, and the instant your customer pushes back, everything freezes and a human takes over. Most overdue B2B invoices were never refused; they were lost in someone's accounts-payable pile. A polite, consistent nudge is usually all it takes.</div></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">What happens if my customer disputes the invoice?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">Everything stops, in seconds. The AI never argues a dispute. The case routes to a human and to you, and you decide how to resolve it. Sometimes the customer is right, and we help you fix it gracefully. Outreach resumes only on your instruction.</div></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">What is the AI allowed to decide on its own?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">It operates inside hard limits you approve upfront: for example, settlement discounts up to 10% and payment plans up to 3 months. Anything outside those bounds, plus every dispute or hardship reply, goes to a human. In your first weeks you can approve each message before it sends, and every decision is logged with its reasoning, where you can read it.</div></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">What channels do you use?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">Email first, with polite text messages as a follow-up channel. Any &ldquo;please stop contacting me&rdquo; request is honored instantly, every time.</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-group">
+        <div class="faq-glabel">MONEY</div>
+        <div class="faq-card">
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">How does pricing work?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">One number: 20% of what's actually recovered. No setup fee, no monthly fee, no minimums, no charge for trying. If we recover nothing, you owe nothing. Not a reduced fee. Nothing.</div></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">Do you ever hold my money?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">Never. Your customer pays you directly, using your bank details or a payment link wired to your own account. We receive only a confirmation that payment landed, then invoice our 20% separately. Your money never passes through our hands.</div></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">What if my customer pays me directly by check or transfer?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">That counts. You confirm the payment in your dashboard and the same 20% applies. Recovery is recovery, whichever rail it arrives on.</div></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">What is Standing Watch?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">An optional $99/month plan most clients add after their first recovery: we watch your receivables from day one, so invoices get a professional nudge at day 35 instead of a rescue at day 90.</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-group">
+        <div class="faq-glabel">TRUST &amp; CONTROL</div>
+        <div class="faq-card">
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">Is this legal?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">Yes, by design. We work commercial (business-to-business) debt only, which sits outside consumer-collection law, and we act as your authorized agent in your own name, not as a third-party agency. No legal threats, capped contact frequency, a state-by-state screen on every debtor at intake, and an instant pause on any dispute or hardship. (We're a recovery service, not a law firm. For advice about a specific debt, talk to your attorney.)</div></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">What do you need from me to start?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">Three things, ten minutes: your oldest unpaid invoices (PDF, or a CSV from QuickBooks/Xero), your customer's contact details, and a signed one-page authorization letting us act in your name. Most clients are live within a day.</div></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false"><span class="q-text">Can I stop anytime or pull an invoice back?</span><span class="chev"><svg width="13" height="8" viewBox="0 0 13 8"><path d="M1 1 L6.5 6.5 L12 1" fill="none" stroke="#6B7686" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            <div class="faq-a-wrap"><div class="faq-a-clip"><div class="faq-a">Instantly, from your dashboard. No questions, no fee. You only ever owe the 20% on money already recovered.</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-foot">Something we didn&rsquo;t answer? Email support&#64;stillowed.com. A human replies the same day.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSE ============ -->
+<section id="contact" class="close">
+  <div class="close-inner">
+    <h2>Send us your three oldest unpaid invoices.</h2>
+    <p class="close-sub">If nothing comes back, you never pay.</p>
+
+    <div class="intake">
+      <div class="dropzone">
+        <div class="dz-main">Drop invoices here: PDF, photo, or a messy export</div>
+        <div class="dz-sub">up to 3 files</div>
+      </div>
+      <div class="intake-row">
+        <input type="email" placeholder="you@yourcompany.com">
+        <button class="btn-primary" type="button">Begin recovery</button>
+      </div>
+      <div class="demo-note">DEMO ONLY &middot; NOTHING IS UPLOADED OR SENT FROM THIS PAGE</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <div class="foot-cols">
+      <div class="foot-brand">
+        <div class="brand">
+          <svg class="brand-mark" width="30" height="30" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 33 H21 L33 17" fill="none" stroke="#1A1611" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/><polygon points="0,-5.2 9.5,0 0,5.2" transform="translate(32,18) rotate(-53)" fill="#C03A1F"/></svg>
+          <span class="wordmark"><span class="wm-still">Still</span><span class="wm-owed">Owed</span></span>
+        </div>
+        <p class="foot-desc">Recovery of written-off B2B invoices, pursued courteously in your name and paid directly to your account. 20% of what&rsquo;s recovered, $0 otherwise.</p>
+        <div class="foot-pills">
+          <div class="foot-pill">B2B debt only</div>
+          <div class="foot-pill">Never holds funds</div>
+          <div class="foot-pill">$0 unless recovered</div>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <div class="foot-col-label">PRODUCT</div>
+        <div class="foot-links">
+          <a href="#sim">The case files</a>
+          <a href="#contact">Submit invoices</a>
+          <span>Standing Watch</span>
+          <span>Pricing</span>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <div class="foot-col-label">COMPANY</div>
+        <div class="foot-links">
+          <span>About</span>
+          <span>How we work</span>
+          <span>Contact</span>
+        </div>
+      </div>
+
+      <div class="foot-col legal">
+        <div class="foot-col-label">LEGAL</div>
+        <div class="foot-links">
+          <a href="legal.html#terms">Terms of service</a>
+          <a href="legal.html#privacy">Privacy policy</a>
+          <a href="legal.html#guardrails">Guardrail register</a>
+          <a href="legal.html#compliance">Compliance</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <div>&copy; 2026 Frost Peak Ventures LLC, operating as StillOwed &middot; Sheridan, WY</div>
+      <span class="spacer"></span>
+      <div>Demonstration page. All companies, people, and messages are fictional sample data.</div>
+    </div>
+
+    <div class="foot-wordmark" aria-hidden="true"><span class="wm-still">Still</span><span class="wm-owed">Owed</span></div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
