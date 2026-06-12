@@ -564,4 +564,47 @@
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   });
+
+  /* ── early access forms (Formspree) ── */
+  $$('.js-ea-form').forEach(function (form) {
+    var btn = $('button[type="submit"]', form);
+    var errEl = form.parentElement.querySelector('.ea-error');
+    var originalLabel = btn.textContent;
+
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      errEl.hidden = true;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (res) {
+        if (res.ok) {
+          var ok = document.createElement('div');
+          ok.className = form.classList.contains('capture-pill') ? 'capture-success' : 'intake-success';
+          ok.innerHTML = '<span class="ck">✓</span><span>You’re on the list. We’ll be in touch before the July cohort.</span>';
+          form.replaceWith(ok);
+        } else {
+          return res.json().then(function (data) {
+            var m = (data && data.errors && data.errors.length)
+              ? data.errors.map(function (e) { return e.message; }).join(', ')
+              : 'Something went wrong. Please try again.';
+            showError(m);
+          }).catch(function () { showError('Something went wrong. Please try again.'); });
+        }
+      }).catch(function () {
+        showError('Network problem. Please check your connection and try again.');
+      });
+
+      function showError(message) {
+        errEl.textContent = message;
+        errEl.hidden = false;
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+      }
+    });
+  });
 })();

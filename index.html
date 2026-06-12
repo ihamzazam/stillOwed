@@ -63,11 +63,15 @@
     <h1>An AI agent that recovers your written-off invoices.</h1>
     <p class="hero-sub">StillOwed pursues 60+ day overdue B2B invoices courteously, in <strong>your name</strong>, across email and SMS. Payment lands directly in <strong>your account</strong>, never ours.</p>
     <div class="capture">
-      <div class="capture-pill">
-        <input type="email" placeholder="What's your work email?">
-        <button class="btn-primary" type="button">Apply for early access</button>
-      </div>
-      <div class="capture-note">First cohort onboards in July 2026 &middot; demo page, form not yet connected</div>
+      <form class="capture-pill js-ea-form" action="https://formspree.io/f/mjgdalkr" method="POST">
+        <input type="email" name="email" placeholder="What's your work email?" required aria-label="Work email">
+        <input type="hidden" name="source" value="hero">
+        <input type="hidden" name="_subject" value="StillOwed early access application">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn-primary" type="submit">Apply for early access</button>
+      </form>
+      <div class="ea-error" hidden></div>
+      <div class="capture-note">First cohort onboards in July 2026</div>
     </div>
     <div class="proof-row">
       <span><span class="ck">&#10003;</span>20% only on recovery, $0 otherwise</span>
@@ -949,11 +953,15 @@
         <div class="dz-main">Drop invoices here: PDF, photo, or a messy export</div>
         <div class="dz-sub">up to 3 files</div>
       </div>
-      <div class="intake-row">
-        <input type="email" placeholder="you@yourcompany.com">
-        <button class="btn-primary" type="button">Begin recovery</button>
-      </div>
-      <div class="demo-note">DEMO ONLY &middot; NOTHING IS UPLOADED OR SENT FROM THIS PAGE</div>
+      <form class="intake-row js-ea-form" action="https://formspree.io/f/mjgdalkr" method="POST">
+        <input type="email" name="email" placeholder="you@yourcompany.com" required aria-label="Work email">
+        <input type="hidden" name="source" value="close">
+        <input type="hidden" name="_subject" value="StillOwed early access application">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn-primary" type="submit">Begin recovery</button>
+      </form>
+      <div class="ea-error" hidden></div>
+      <div class="demo-note">FILE DROP IS A DEMO MOCK &middot; ONLY YOUR EMAIL IS SUBMITTED</div>
     </div>
   </div>
 </section>
