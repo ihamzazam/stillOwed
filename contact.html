@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StillOwed · Contact</title>
+<meta name="description" content="Contact StillOwed. Email support@stillowed.com and a human replies the same day.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Ccircle cx='48' cy='48' r='48' fill='%231A1611'/%3E%3Cg transform='translate(12,12) scale(1.5)'%3E%3Cpath d='M6 33 H21 L33 17' fill='none' stroke='%23F4F0E6' stroke-width='5' stroke-linecap='square' stroke-linejoin='miter'/%3E%3Cpolygon points='0,-5.2 9.5,0 0,5.2' transform='translate(32,18) rotate(-53)' fill='%23E0512F'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Archivo:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/legal.css">
+<style>
+  .contact-page { max-width: 640px; margin: 0 auto; padding: 56px 24px 96px; }
+  .contact-page h1 { margin: 0; font-family: var(--serif); font-size: clamp(30px, 4vw, 40px); font-weight: 600; letter-spacing: -0.015em; }
+  .contact-sub { margin: 14px 0 0; font-size: 15.5px; line-height: 1.7; color: var(--body); }
+  .contact-card {
+    margin-top: 32px; background: #FFFFFF; border: 1px solid #DDE1E5; border-radius: 18px;
+    padding: 28px; box-shadow: 0 1px 3px rgba(16, 24, 32, 0.05);
+  }
+  .contact-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--faint); }
+  .contact-email-row { margin-top: 10px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .contact-email { font-family: 'IBM Plex Mono', Consolas, monospace; font-size: clamp(16px, 2.6vw, 20px); font-weight: 600; color: var(--ink); word-break: break-all; }
+  .btn-copy {
+    background: #FFFFFF; border: 1px solid var(--line-ctl); color: var(--body); font-weight: 600;
+    font-size: 12px; letter-spacing: 0.04em; padding: 7px 14px; border-radius: 999px;
+    cursor: pointer; font-family: var(--sans);
+  }
+  .btn-copy:hover { border-color: var(--navy); color: var(--navy); }
+  .btn-copy.copied { background: #EDF5F0; border-color: #1E6F4C; color: #1E6F4C; }
+  .btn-email {
+    display: inline-block; margin-top: 18px; text-decoration: none; background: var(--navy); color: #FFFFFF;
+    font-weight: 600; font-size: 14px; padding: 12px 26px; border-radius: 999px; letter-spacing: 0.01em;
+  }
+  .btn-email:hover { background: #1E4A75; }
+  .contact-note { margin-top: 16px; font-size: 13px; color: var(--muted); line-height: 1.65; }
+  .contact-mail-block { margin-top: 26px; border-top: 1px solid var(--line); padding-top: 22px; }
+  .contact-addr { margin-top: 10px; font-size: 14px; line-height: 1.8; color: var(--body); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" width="30" height="30" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 33 H21 L33 17" fill="none" stroke="#1A1611" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/><polygon points="0,-5.2 9.5,0 0,5.2" transform="translate(32,18) rotate(-53)" fill="#C03A1F"/></svg>
+      <span class="wordmark"><span class="wm-still">Still</span><span class="wm-owed">Owed</span></span>
+    </a>
+    <span class="spacer"></span>
+    <a class="btn-back" href="index.html">&#8592; Back to the demo</a>
+  </div>
+</header>
+
+<div class="demo-banner">
+  <div class="demo-banner-inner">DEMONSTRATION SITE &middot; SAMPLE DOCUMENTS &middot; ALL DATA FICTIONAL</div>
+</div>
+
+<main class="contact-page">
+  <h1>Contact</h1>
+  <p class="contact-sub">One inbox, read by people. A human replies the same day.</p>
+
+  <div class="contact-card">
+    <div class="contact-label">EMAIL</div>
+    <div class="contact-email-row">
+      <span class="contact-email" id="contact-email">support&#64;stillowed.com</span>
+      <button class="btn-copy" type="button" id="btn-copy">Copy</button>
+    </div>
+    <a class="btn-email" href="mailto:support&#64;stillowed.com?subject=Hello%20StillOwed">Email support&#64;stillowed.com</a>
+    <div class="contact-note">Questions about early access, the demo, or how recovery works: all of it lands in the same place.</div>
+
+    <div class="contact-mail-block">
+      <div class="contact-label">MAIL</div>
+      <div class="contact-addr">Frost Peak Ventures LLC, operating as StillOwed<br>30 N Gould St Ste N<br>Sheridan, WY 82801</div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>&copy; 2026 Frost Peak Ventures LLC, operating as StillOwed &middot; Sheridan, WY</div>
+    <span class="spacer"></span>
+    <div>Demonstration page. Product in development; agent goes live July 2026.</div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('btn-copy');
+    btn.addEventListener('click', function () {
+      navigator.clipboard.writeText('support@stillowed.com').then(function () {
+        btn.textContent = 'Copied ✓';
+        btn.classList.add('copied');
+        setTimeout(function () {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 1800);
+      }).catch(function () {
+        var range = document.createRange();
+        range.selectNodeContents(document.getElementById('contact-email'));
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      });
+    });
+  })();
+</script>
+</body>
+</html>
